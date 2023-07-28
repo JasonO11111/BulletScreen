@@ -1,0 +1,95 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+}
+
+apply from: "${rootDir.path}/gradle/basic.gradle"
+
+android {
+
+}
+
+dependencies {
+    api rootProject.ext.dependencies.mmkv
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+    api "androidx.activity:activity-ktx:1.4.0"
+    api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    api 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+
+
+    api "com.squareup.okhttp3:okhttp:4.10.0"
+    //retrofit
+    api 'com.squareup.retrofit2:retrofit:2.5.0'
+    api 'com.google.code.gson:gson:2.8.9'
+    api 'io.reactivex:rxjava:1.1.5'
+    api 'io.reactivex:rxandroid:1.1.0'
+    api 'com.squareup.retrofit2:converter-gson:2.5.0'
+    api 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    api 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
+    //basequickadapter
+    api "io.github.cymchad:BaseRecyclerViewAdapterHelper:3.0.4"
+
+    //smart
+    api 'io.github.scwang90:refresh-layout-kernel:2.0.6'
+    api 'io.github.scwang90:refresh-header-two-level:2.0.6'
+
+    //glide
+    api 'jp.wasabeef:glide-transformations:4.3.0'
+    api 'com.github.bumptech.glide:glide:4.13.0'
+    kapt 'com.github.bumptech.glide:compiler:4.13.0'
+
+    //webview
+    implementation 'com.github.Justson.AgentWeb:agentweb-core:v5.0.6-androidx'
+
+    //circle imageview
+    api 'de.hdodenhof:circleimageview:3.1.0'
+
+    //cookiejar
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
+    //flipper
+    debugApi 'com.facebook.flipper:flipper:0.189.0'
+    debugApi 'com.facebook.soloader:soloader:0.10.5'
+    debugApi 'com.facebook.flipper:flipper-network-plugin:0.189.0'
+
+    releaseApi 'com.facebook.flipper:flipper-noop:0.189.0'
+//
+//    debugApi 'com.squareup.leakcanary:leakcanary-android:1.6.1'
+//
+//    releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    implementation 'android.arch.persistence.room:runtime:1.0.0'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
+    api 'com.blankj:utilcodex:1.31.1'
+
+    //视频播放库
+    //required, enough for most devices.
+    api 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+    api 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
+
+    //Other ABIs: optional
+    api 'tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8'
+    api 'tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8'
+    api 'tv.danmaku.ijk.media:ijkplayer-x86:0.8.8'
+    api 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8'
+
+    //ExoPlayer as IMediaPlayer: optional, experimental
+    api 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'
+
+    //qmui
+    api 'com.qmuiteam:qmui:1.4.0'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.gcu'
+                artifactId = 'base'
+                version = '1.0.0'
+            }
+        }
+    }
+}

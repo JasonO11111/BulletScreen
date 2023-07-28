@@ -1,0 +1,47 @@
+ext {
+    android = [
+            compileSdkVersion: 32,
+            minSdkVersion    : 21,
+            targetSdkVersion : 33,
+            buildToolsVersion: "30.0.3",
+            versionCode      : 1,
+            versionName      : "1.0.0", //-beta1
+    ]
+
+    compileOptions = [
+            sourceCompatibility: JavaVersion.VERSION_1_8,
+            targetCompatibility: JavaVersion.VERSION_1_8,
+    ]
+
+    kotlinOptions = [
+            jvmTarget: JavaVersion.VERSION_1_8,
+    ]
+
+    versions = [
+            androidx_core         : "1.2.0",
+            androidx_appcompat    : "1.3.0",
+            androidx_arch         : "2.1.0",
+            androidx_annotation   : "1.1.0",
+            androidx_multidex     : "2.0.1",
+            androidx_fragment     : "1.1.0",
+            androidx_lifecycle    : "2.2.0",
+            androidx_room         : "2.2.5",
+            constraintLayout      : "2.0.4",
+            swipeBack             : "2.0.5",
+            mmkv                  : "1.0.10",
+            anyDialog             : "3.0.3",
+            anyLayer              : "5.0.0-alpha02",
+    ]
+
+    dependencies = [
+            androidx                     : "androidx.core:core:${versions.androidx_core}",
+            androidxKtx                  : "androidx.core:core-ktx:${versions.androidx_core}",
+            androidxAppcompat            : "androidx.appcompat:appcompat:${versions.androidx_appcompat}",
+            androidxConstraintLayout     : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
+            design                       : "com.google.android.material:material:1.4.0",
+            swipeBack                    : "com.github.goweii:SwipeBack:${versions.swipeBack}",
+            mmkv                         : "com.tencent:mmkv:${versions.mmkv}",
+            anyDialog                    : "com.github.goweii:AnyDialog:${versions.anyDialog}",
+            anyLayer                     : "com.github.goweii:AnyLayer:${versions.anyLayer}",
+    ]
+}

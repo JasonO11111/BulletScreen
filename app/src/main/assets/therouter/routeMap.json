@@ -1,0 +1,9 @@
+[
+  {
+    "path": "WanAndroid://web_view_activity",
+    "className": "com.gcu.base.view.WebViewActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  }
+]

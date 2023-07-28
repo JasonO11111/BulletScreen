@@ -1,0 +1,8 @@
+apply from: "${rootDir.path}/gradle/basic.gradle"
+
+android {
+}
+
+dependencies {
+    api project(':libraries:base')
+}

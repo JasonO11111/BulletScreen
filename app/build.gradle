@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'therouter'
+
+apply from: "${rootDir.path}/gradle/module.gradle"
+
+android {
+    defaultConfig {
+        applicationId "com.gcu.bulletscreen"
+        renderscriptTargetApi rootProject.ext.android.minSdkVersion
+        renderscriptSupportModeEnabled true
+        ndk {
+            abiFilters /*'armeabi',*/ 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def versionName = variant.versionName
+            def versionCode = variant.versionCode
+            def buildType = variant.buildType.name
+            output.outputFileName = "${applicationId}-${versionName}-${versionCode}-${buildType}.apk"
+        }
+    }
+
+    packagingOptions {
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirst 'lib/x86_64/libc++_shared.so'
+        pickFirst 'lib/x86/libc++_shared.so'
+    }
+
+}
+
+dependencies {
+    debugImplementation 'io.github.didi.dokit:dokitx:3.5.0.1'
+    releaseImplementation 'io.github.didi.dokit:dokitx-no-op:3.5.0.1'
+}
