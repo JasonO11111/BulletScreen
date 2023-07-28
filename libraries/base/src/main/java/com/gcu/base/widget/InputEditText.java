@@ -34,7 +34,7 @@ public class InputEditText extends androidx.appcompat.widget.AppCompatEditText {
      * 初始化EditText
      */
     private void init(Context context) {
-        mRightDrawable = context.getResources().getDrawable(R.drawable.delete_icon);
+        mRightDrawable = context.getResources().getDrawable(R.drawable.delete);
     }
 
     @Override
