@@ -67,7 +67,6 @@ dependencies {
 //
 //    releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
     implementation 'android.arch.persistence.room:runtime:1.0.0'
-    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
     api 'com.blankj:utilcodex:1.31.1'
 
     //视频播放库
@@ -95,7 +94,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.gcu'
                 artifactId = 'base'
-                version = '1.0.1'
+                version = '1.0.2'
             }
         }
     }
