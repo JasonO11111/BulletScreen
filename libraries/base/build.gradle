@@ -4,6 +4,13 @@ plugins {
     id 'maven-publish'
 }
 
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
 apply from: "${rootDir.path}/gradle/basic.gradle"
 
 android {
